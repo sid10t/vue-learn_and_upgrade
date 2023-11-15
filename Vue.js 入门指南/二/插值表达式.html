@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>{{name}}<h3>
+    <p>{{motto.toUpperCase()}}</p>
+    <p>{{age >= 18 ? '成年':'未成年'}}</p>
+    <p>{{friend.sex}}</p>
+    <p>{{fn()}}</p>
+  </div>
+
+  <script src="../../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        name: "sidiot",
+        motto: "Hello, World!",
+        age: 18,
+        friend: {
+          name: "friend",
+          sex: "girl"
+        },
+        fn() {
+          return "I'm sidiot."
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
