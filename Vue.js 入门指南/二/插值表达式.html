@@ -5,16 +5,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>插值表达式</title>
 </head>
 
 <body>
   <div id="app">
-    <h3>{{name}}<h3>
+    <h3>{{name}}</h3>
     <p>{{motto.toUpperCase()}}</p>
     <p>{{age >= 18 ? '成年':'未成年'}}</p>
     <p>{{friend.sex}}</p>
     <p>{{fn()}}</p>
+
+<!--    1. 在插值表达式中的数据需要在 data 中存在。-->
+<!--    <p>{{desc}}</p>-->
+
+<!--    2. 不支持语句使用。if for-->
+<!--    <p>{{for}}</p>-->
+
+<!--    3. 不能在标签的属性中使用插值表达式。-->
+<!--    <p id={{name}}></p>-->
   </div>
 
   <script src="../../vue.js"></script>
