@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容渲染指令</title>
+</head>
+<body>
+<div id="app">
+    <!-- v-text -->
+    <span>sidiot</span><br>
+    <span v-text="text">sidiot</span>
+    <br><br><br>
+
+    <!-- v-html -->
+    <span>sidiot</span><br>
+    <span v-html="html">sidiot</span>
+    <br><br><br>
+
+    <!-- v-html xss -->
+    <label>
+        <input type="text" v-model="value">
+        <p>输入的值: <span v-html="value"></span></p>
+    </label>
+</div>
+
+<script src="../../vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            text: "This is v-text!",
+            html: "<h3>This is v-html!</h3>",
+            value: ""
+        }
+    })
+</script>
+</body>
+</html>
