@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>v-for 指令</title>
@@ -20,54 +21,56 @@
         }
     </style>
 </head>
+
 <body>
-<div id="app">
-    <div class="container">
-        <img class="image" src="imgs/ngm.avif" alt="">
-        <div class="content">
-            <h3>sɪᴅɪᴏᴛ 的技能列表：</h3>
-            <!-- 基本用法 -->
-            <ul>
-                <li v-for="item in items">{{ item }}</li>
-            </ul>
+    <div id="app">
+        <div class="container">
+            <img class="image" src="imgs/ngm.avif" alt="">
+            <div class="content">
+                <h3>sɪᴅɪᴏᴛ 的技能列表：</h3>
+                <!-- 基本用法 -->
+                <ul>
+                    <li v-for="item in items">{{ item }}</li>
+                </ul>
 
-            <!-- 使用索引值 -->
-            <ul>
-                <li v-for="(item, index) in items">
-                    第 {{ index+1 }} 技能：{{ item }}
-                </li>
-            </ul>
+                <!-- 使用索引值 -->
+                <ul>
+                    <li v-for="(item, index) in items">
+                        第 {{ index+1 }} 技能：{{ item }}
+                    </li>
+                </ul>
 
-            <!-- 对象迭代 -->
-            <h3>sɪᴅɪᴏᴛ 的自我介绍：</h3>
-            <ul>
-                <li v-for="(value, key) in person">
-                    {{ key }} - {{ value }}
-                </li>
-            </ul>
+                <!-- 对象迭代 -->
+                <h3>sɪᴅɪᴏᴛ 的自我介绍：</h3>
+                <ul>
+                    <li v-for="(value, key) in person">
+                        {{ key }} - {{ value }}
+                    </li>
+                </ul>
 
-            <!-- 使用 of 关键字 -->
-            <ul>
-                <li v-for="item of items">{{ item }}</li>
-            </ul>
+                <!-- 使用 of 关键字 -->
+                <ul>
+                    <li v-for="item of items">{{ item }}</li>
+                </ul>
 
+            </div>
         </div>
     </div>
-</div>
 
-<script src="../../vue.js"></script>
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            items: ['唱', '跳', 'rap', '篮球'],
-            person: {
-                "名字": "sɪᴅɪᴏᴛ",
-                "年龄": 18,
-                "爱好": "篮球"
+    <script src="../../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                items: ['唱', '跳', 'rap', '篮球'],
+                person: {
+                    "名字": "sɪᴅɪᴏᴛ",
+                    "年龄": 18,
+                    "爱好": "篮球"
+                }
             }
-        }
-    })
-</script>
+        })
+    </script>
 </body>
+
 </html>

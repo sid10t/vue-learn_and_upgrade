@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>电子宣传小册</title>
@@ -14,45 +15,48 @@
             border-radius: 5px;
             box-shadow: 2px 2px 2px #ccc;
         }
+
         img {
             width: 200px;
             height: 100px;
         }
     </style>
 </head>
+
 <body>
-<div id="app">
-    <h5 v-text="title_list[index]"></h5>
-    <div class="box">
-        <img :src="photo_list[index]" alt="">
+    <div id="app">
+        <h5 v-text="title_list[index]"></h5>
+        <div class="box">
+            <img :src="photo_list[index]" alt="">
+        </div>
+        <button v-show="index > 0" @click="index--">上一篇</button>
+        <button v-show="index < photo_list.length - 1" @click="index++">下一篇</button>
     </div>
-    <button v-show="index > 0" @click="index--">上一篇</button>
-    <button v-show="index < photo_list.length - 1" @click="index++">下一篇</button>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-<script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            index: 0,
-            title_list:[
-                "【Netty】「源码解析」（三）设置连接超时：深入分析 ChannelFuture.sync() 的执行过程",
-                "【Netty】「源码解析」（二）HeapBuffer 创建过程详解：高效可靠的内存管理技巧",
-                "【Netty】「源码解析」（一）ByteBuf 的动态扩容策略与实现原理",
-                "【Netty】「项目实战」（三）序列化算法选型对聊天室可扩展性的影响",
-                "【Netty】「项目实战」（二）提升聊天室的性能，从引入心跳检测机制开始",
-                "【Netty】「项目实战」（一）如何构建多客户端聊天室"
-            ],
-            photo_list: [
-                "./imgs/y3.png",
-                "./imgs/y2.png",
-                "./imgs/y1.png",
-                "./imgs/x3.png",
-                "./imgs/x2.png",
-                "./imgs/x1.png"
-            ]
-        }
-    })
-</script>
+    <script src="../../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                index: 0,
+                title_list: [
+                    "【Netty】「源码解析」（三）设置连接超时：深入分析 ChannelFuture.sync() 的执行过程",
+                    "【Netty】「源码解析」（二）HeapBuffer 创建过程详解：高效可靠的内存管理技巧",
+                    "【Netty】「源码解析」（一）ByteBuf 的动态扩容策略与实现原理",
+                    "【Netty】「项目实战」（三）序列化算法选型对聊天室可扩展性的影响",
+                    "【Netty】「项目实战」（二）提升聊天室的性能，从引入心跳检测机制开始",
+                    "【Netty】「项目实战」（一）如何构建多客户端聊天室"
+                ],
+                photo_list: [
+                    "./imgs/y3.png",
+                    "./imgs/y2.png",
+                    "./imgs/y1.png",
+                    "./imgs/x3.png",
+                    "./imgs/x2.png",
+                    "./imgs/x1.png"
+                ]
+            }
+        })
+    </script>
 </body>
+
 </html>
