@@ -16,26 +16,26 @@
         <!-- 输入框 -->
         <header class="header">
             <h1>电子记事本</h1>
-            <input placeholder="请输入任务" class="new-todo" />
-            <button class="add">添加任务</button>
+            <input v-model="todoName" placeholder="请输入任务" class="new-todo" />
+            <button @click="add" class="add">添加任务</button>
         </header>
         <!-- 列表区域 -->
         <section class="main">
             <ul class="todo-list">
-                <li class="todo">
+                <li class="todo" v-for="(item, index) in list" :key="item.id">
                     <div class="view">
-                        <span class="index">1.</span> <label>爱 sɪᴅɪᴏᴛ</label>
-                        <button class="destroy"></button>
+                        <span class="index">{{ index + 1 }}.</span> <label>{{ item.name }}</label>
+                        <button @click="del(item.id)" class="destroy"></button>
                     </div>
                 </li>
             </ul>
         </section>
         <!-- 统计和清空 -->
-        <footer class="footer">
+        <footer class="footer" v-show="list.length > 0">
             <!-- 统计 -->
-            <span class="todo-count">合 计:<strong> 1 </strong></span>
+            <span class="todo-count">合 计:<strong> {{ list.length }} </strong></span>
             <!-- 清空 -->
-            <button class="clear-completed">
+            <button @click="clear" class="clear-completed">
                 清空任务
             </button>
         </footer>
@@ -47,6 +47,31 @@
         const app = new Vue({
             el: '#app',
             data: {
+                todoName: '',
+                list: [
+                    { id: 1, name: '唱' },
+                    { id: 2, name: '跳' },
+                    { id: 3, name: 'rap' },
+                ]
+            },
+            methods: {
+                add() {
+                    if (this.todoName.trim() === '') {
+                        alert('请输入任务名称')
+                        return
+                    }
+                    this.list.unshift({
+                        id: +new Date(),
+                        name: this.todoName
+                    })
+                    this.todoName = ''
+                },
+                del(id) {
+                    this.list = this.list.filter(item => item.id !== id)
+                },
+                clear() {
+                    this.list = []
+                },
             }
         })
     </script>
